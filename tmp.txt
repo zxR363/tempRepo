@@ -1,1 +1,34 @@
-test
+TR  - EN
+
+Değişim  							= Change
+Fark 								= Difference
+Karşılaştı 							= Compare
+Toplam İşlem Hacmi  				= Volume
+3 Aylık Hareketler  				= 3M Figures
+Fiyat Hareketi      			    = Price Changes
+Hacim Hareketi      				= Volume Changes
+Dahili Olduğu Endekslerin Ağırlığı  = Index Weights
+Faal Alanı 							= Fields of Activity
+Ünvanı								= Company Name
+Kuruluş 							= Establishment
+Özkaynaklar							= Book Value
+Ödenmiş Sermaye						= Capital
+Net Kar 							= Net Income
+Yayınlanmış Şirket Raporları 		= Company Reports
+Özet Finansal Göstergeler			= Summary Financial Figures
+Satışlar							= Sales
+FAVÖK								= EBITDA
+Net Kar								= Net Income
+FD/Satışlar							= EV/Sales
+FD/FAVÖK							= EV/EBITDA
+F/K									= P/E
+PD/DD								= P/BV
+Yabancı Oranı(%)					= Foreign Share(%)
+Ort Hacim 							= Avg.Vol.
+Piyasa değeri						= Market Value
+Net Borç							= Net Debt
+Yurtdışı Çarpan İskontosu			= Global Peer Disc. Prem.
+Getiriler							= Stock Return Table
+Göreceli							= Relative
+Ortalık Yapısı						= Foreign Ownership
+Pay Oranı							= Share Ratio
