@@ -17,8 +17,8 @@ stream = ScreenGear(monitor=1, logging=True, **options).start()
 stream2 = ScreenGear(monitor=2, logging=True, **options).start()
 
 # Define writer with defined parameters and suitable output filename for e.g. `Output.mp4`
-writer = WriteGear(output_filename="Output.mp4", logging=False,custom_ffmpeg="C:\\Users\\democh\\Downloads\\ffmpeg-4.2.1-win-64", **output_params)
-writer2 = WriteGear(output_filename="Output2.mp4", logging=False,custom_ffmpeg="C:\\Users\\democh\\Downloads\\ffmpeg-4.2.1-win-64", **output_params)
+writer = WriteGear(output_filename="Output.mp4", logging=False,custom_ffmpeg="D:\\ffmpeg-4.2.1-win-64", **output_params)
+writer2 = WriteGear(output_filename="Output2.mp4", logging=False,custom_ffmpeg="D:\\ffmpeg-4.2.1-win-64", **output_params)
 
 # loop over
 while True:
