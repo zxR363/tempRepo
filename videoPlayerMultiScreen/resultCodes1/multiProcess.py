@@ -55,8 +55,8 @@ def runAllSubMediaPlayer(value,path):
     print("Process Killed")
 
 
-def threaded_client(connection, playStopFlag,sendingMessage,durationForJump):
-
+def threaded_client(connection, playStopFlag1,sendingMessage,durationForJump):
+	global playStopFlag
 	connection.send(str.encode('Welcome to the Servern'))
 
 	time.sleep(15)
@@ -144,6 +144,7 @@ def managePlaySide(q):
 			a=5
 			#print("Veri yok")
 
+	print("Closed 1 side")
 	ServerSocket.close()
 
 def manageRecordSide(q):
