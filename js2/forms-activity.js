@@ -69,13 +69,18 @@ f.appendChild(elementful2);
 iDiv3.appendChild(f);
 
 //----------------------------------------------NAME----------------------------------------------
-function createNameField(name,marginSize) {
+function createNameField(customId,name,marginSize) {
 	var t = document.createTextNode(name);
 	//-----------INPUT------------------
 	var input = document.createElement("input");
+	input.id=customId;
 	input.type = "text";
+	input.required =true;
+	input.setAttribute("minlength", "2");
+	input.setAttribute('pattern',"[A-Za-z0-9]{2,}");
+	input.setAttribute('title',"Must contain at least 2 character");
 	input.style.marginLeft=marginSize;
-		
+
 	//---------------------------
 	var li = document.createElement("li");
 	li.appendChild(t);
@@ -84,8 +89,8 @@ function createNameField(name,marginSize) {
 	return li
 }
 
-var names = createNameField("Name :","44px");
-var surnames = createNameField("Surname: ","26px");
+var names = createNameField("name","Name :","44px");
+var surnames = createNameField("surname","Surname: ","26px");
 names.style.marginBottom="5px";
 surnames.style.marginBottom="5px";
 elementful2.appendChild(names);
@@ -98,9 +103,12 @@ function createEmail()
 	
 	//----Email
 	var email = document.createElement('input');
+	email.id="mail";
+	email.required=true;
 	email.setAttribute('type', 'email');
+	email.setAttribute('pattern',"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$");
+	email.setAttribute('title',"Must contain at least 2 after @x. character");
 	elementful2.appendChild(email);
-
 	email.addEventListener("click", function () {
 	  
 	});
@@ -125,15 +133,23 @@ elementful2.appendChild(h);
 
 //----DETAIL ---------- 
 var checkbox = document.createElement('input');
-	checkbox.setAttribute('type', 'checkbox');
+checkbox.id ="chc";
+checkbox.setAttribute('type', 'checkbox');
+
+checkbox.addEventListener("change", function () {
 	
-checkbox.addEventListener("click", function () {
-	if(checkbox.checked)
+	if(document.getElementById("chc").checked)
 	{
-		textarea.disabled="true";
+		textarea.removeAttribute('disabled');
+	}
+	else
+	{
+		textarea.setAttribute('disabled','disabled');
 	}
 	
 });
+
+
 		
 var detail = document.createTextNode("Details:");
 	
@@ -147,21 +163,58 @@ elementful2.appendChild(li1);
 var hc = document.createElement("H1");
 
 var textarea = document.createElement("textarea");
+textarea.id="abc";
 textarea.style="margin-left: 20px;margin-top:-20px";
 textarea.rows=4;
 textarea.cols=50;
+textarea.disabled="true";
 
 elementful2.appendChild(hc);
 elementful2.appendChild(textarea);
 
+function createResult(valName,valSur,valMail,valDescription) {
+	var nm = document.createTextNode("Name:"+valName);
+	var srname = document.createTextNode("Surname:"+valSur);
+	var mail = document.createTextNode("eMail:"+valMail);
+	var txtarea = document.createTextNode("description:"+valDescription);
+	
+	var v = document.createElement("ul"); 
+	var p1 = document.createElement("li");
+	var p2 = document.createElement("li");
+	var p3 = document.createElement("li");
+	var p4 = document.createElement("li");
+	p1.appendChild(nm);
+	v.appendChild(p1);
+	p2.appendChild(srname);
+	v.appendChild(p2);
+	p3.appendChild(mail);
+	v.appendChild(p3);
+	p4.appendChild(txtarea);
+	v.appendChild(p4);
+	
+	return v
+}
+
+
 //---------------------------BUTTONS-----------------------
+
+
+var val;
 let btn = document.createElement("button");
+btn.type="button";
 btn.innerHTML = "Submit";
 btn.style.background='#C71585';
 btn.style.color='#ffffff';
 btn.addEventListener("click", function () {
-	
-});
+	iDiv2 = createDiv();
+	iDiv2.style.marginLeft="38px";
+	val = createResult(document.getElementById('name').value,document.getElementById('surname').value,document.getElementById('mail').value,document.getElementById('abc').value);
+	iDiv2.appendChild(val);
+	document.getElementsByTagName('body')[0].appendChild(iDiv2);
+
+});	
+
+
 
 let resetBtn = document.createElement("button");
 resetBtn.innerHTML = "Reset";
@@ -169,7 +222,8 @@ resetBtn.style.background='#C71585';
 resetBtn.style.color='#ffffff';
 resetBtn.style.marginLeft="15px";
 resetBtn.addEventListener("click", function () {
-	f.reset();	
+	f.reset();
+	document.getElementsByTagName('body')[0].removeChild(document.getElementsByTagName('body')[0].lastChild);
 });
 
 var liBtn = document.createElement("li");
@@ -180,6 +234,13 @@ liBtn.style.marginTop="5px";
 elementful2.appendChild(liBtn);
 
 
+
 document.getElementsByTagName('body')[0].appendChild(iDiv3);
+
+
+
+
+//-------------------------------------
+
 
 // YOUR CODE ENDS HERE
